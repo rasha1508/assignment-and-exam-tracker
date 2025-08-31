@@ -20,7 +20,7 @@
       }
 
       body {
-        background: transparent; /* Cream/Ivory background */
+        background: #fdf6f0; /* Cream/Ivory background */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -32,7 +32,7 @@
 
       .widget-container {
         width: 100%;
-        max-width: 500px;
+        max-width: 600px; /* Increased from 540px */
         background: #fdf6f0; /* Cream/Ivory main background */
         border-radius: 16px;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
@@ -209,10 +209,14 @@
         font-size: 0.9rem;
         max-width: 300px;
         border-left: 3px solid #4a4a4a;
+        opacity: 0;
+        visibility: hidden;
       }
 
       .notification.show {
         transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
       }
 
       .divider {
@@ -289,11 +293,19 @@
         display: flex;
         align-items: center;
         gap: 5px;
+        white-space: nowrap; /* Prevent text from wrapping */
       }
 
       .assignment-due i {
         color: #a3b18a;
         font-size: 0.8rem;
+        flex-shrink: 0; /* Prevent icon from shrinking */
+      }
+
+      .assignment-due span {
+        flex-shrink: 1; /* Allow text to shrink if needed */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Add ellipsis if text overflows */
       }
 
       .progress-container {
@@ -368,6 +380,36 @@
       .progress-tooltip.show {
         opacity: 1;
       }
+
+      .remove-btn {
+        background: none;
+        border: none;
+        color: #4a4a4a;
+        cursor: pointer;
+        padding: 10px 14px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 40px;
+      }
+
+      .remove-btn:hover {
+        background: #f0e6d2;
+        color: #4a4a4a;
+        transform: scale(1.05);
+      }
+
+      .remove-btn i {
+        transition: transform 0.3s ease;
+      }
+
+      .remove-btn:hover i {
+        transform: scale(1.1);
+      }
     </style>
   </head>
   <body>
@@ -422,11 +464,12 @@
             <table class="assignment-table">
               <thead>
                 <tr>
-                  <th style="width: 30%">Name</th>
-                  <th style="width: 15%">Type</th>
-                  <th style="width: 20%">Due Date</th>
-                  <th style="width: 20%">Progress</th>
-                  <th style="width: 15%">Status</th>
+                  <th style="width: 22%">Name</th>
+                  <th style="width: 12%">Type</th>
+                  <th style="width: 16%">Due Date</th>
+                  <th style="width: 16%">Progress</th>
+                  <th style="width: 12%">Status</th>
+                  <th style="width: 22%">Action</th>
                 </tr>
               </thead>
               <tbody id="assignmentTableBody">
@@ -550,6 +593,13 @@
                                 <span>${statusText}</span>
                             </div>
                         </td>
+                        <td>
+                            <button class="remove-btn" onclick="removeAssignment(${
+                              assignment.id
+                            })" title="Remove assignment">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
                     `;
 
             assignmentTableBody.appendChild(row);
@@ -558,6 +608,17 @@
           // Setup progress bars after rendering
           document.querySelectorAll(".progress-bar").forEach(setupProgressBar);
         }
+
+        // Remove assignment function
+        window.removeAssignment = function (assignmentId) {
+          const assignment = assignments.find((a) => a.id === assignmentId);
+          if (assignment) {
+            assignments = assignments.filter((a) => a.id !== assignmentId);
+            saveAssignmentsToStorage();
+            renderAssignments();
+            showNotification(`"${assignment.name}" has been removed`);
+          }
+        };
 
         // Toggle add assignment form
         addAssignmentBtn.addEventListener("click", function () {
@@ -690,3 +751,4 @@
     </script>
   </body>
 </html>
+
