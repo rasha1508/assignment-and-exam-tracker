@@ -1,569 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignments & Exams</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      body {
-        background: transparent; /* Cream/Ivory background */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 20px;
-        font-family: "Inter", sans-serif;
-        color: #4a4a4a; /* Slate Gray for text */
-      }
+        body {
+            background: transparent; /* Cream/Ivory background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            color: #4A4A4A; /* Slate Gray for text */
+        }
 
-      .widget-container {
-        width: 100%;
-        max-width: 600px; /* Increased from 540px */
-        background: #fdf6f0; /* Cream/Ivory main background */
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        overflow: hidden;
-        border: 1px solid rgba(74, 74, 74, 0.1);
-      }
+        .widget-container {
+            width: 100%;
+            max-width: 600px; /* Increased from 540px */
+            background: #FDF6F0; /* Cream/Ivory main background */
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            border: 1px solid rgba(74, 74, 74, 0.1);
+        }
 
-      .widget-header {
-        background: #4a4a4a; /* Slate Gray for header */
-        color: white;
-        padding: 20px 18px;
-        text-align: center;
-      }
+        .widget-header {
+            background: #4A4A4A; /* Slate Gray for header */
+            color: white;
+            padding: 20px 18px;
+            text-align: center;
+        }
 
-      .widget-header h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 1.5rem;
-        font-weight: 600;
-        letter-spacing: 0.2px;
-      }
+        .widget-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
 
-      .widget-content {
-        padding: 20px 18px;
-      }
+        .widget-content {
+            padding: 20px 18px;
+        }
 
-      .section {
-        margin-bottom: 24px;
-      }
+        .section {
+            margin-bottom: 24px;
+        }
 
-      .section-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 14px;
-        color: #4a4a4a; /* Slate Gray for section titles */
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        letter-spacing: 0.1px;
-      }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #4A4A4A; /* Slate Gray for section titles */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.1px;
+        }
 
-      .section-title i {
-        color: #a3b18a; /* Sage Green for icons */
-        font-size: 0.9rem;
-      }
+        .section-title i {
+            color: #A3B18A; /* Sage Green for icons */
+            font-size: 0.9rem;
+        }
 
-      .quick-action {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: white;
-        padding: 14px 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(74, 74, 74, 0.1);
-      }
+        .quick-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 14px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 74, 74, 0.1);
+        }
 
-      .quick-action:hover {
-        border-color: #a3b18a; /* Sage Green on hover */
-        box-shadow: 0 4px 12px rgba(163, 177, 138, 0.15);
-      }
+        .quick-action:hover {
+            border-color: #A3B18A; /* Sage Green on hover */
+            box-shadow: 0 4px 12px rgba(163, 177, 138, 0.15);
+        }
 
-      .quick-action-text {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #4a4a4a; /* Slate Gray for text */
-        font-weight: 500;
-        font-size: 0.9rem;
-      }
+        .quick-action-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #4A4A4A; /* Slate Gray for text */
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
 
-      .quick-action-text i {
-        color: #a3b18a; /* Sage Green for icon */
-        font-size: 1rem;
-      }
+        .quick-action-text i {
+            color: #A3B18A; /* Sage Green for icon */
+            font-size: 1rem;
+        }
 
-      .quick-action i:last-child {
-        color: #4a4a4a; /* Slate Gray for chevron */
-        font-size: 0.8rem;
-        transition: transform 0.3s ease;
-      }
+        .quick-action i:last-child {
+            color: #4A4A4A; /* Slate Gray for chevron */
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
 
-      .quick-action:hover i:last-child {
-        transform: translateX(3px);
-      }
+        .quick-action:hover i:last-child {
+            transform: translateX(3px);
+        }
 
-      .add-assignment-form {
-        display: none;
-        margin-top: 14px;
-        padding: 16px;
-        background: white;
-        border-radius: 10px;
-        border: 1px solid rgba(74, 74, 74, 0.1);
-      }
+        .add-assignment-form {
+            display: none;
+            margin-top: 14px;
+            padding: 16px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid rgba(74, 74, 74, 0.1);
+        }
 
-      .form-group {
-        margin-bottom: 12px;
-      }
+        .form-group {
+            margin-bottom: 12px;
+        }
 
-      .form-group label {
-        display: block;
-        margin-bottom: 4px;
-        font-weight: 500;
-        color: #4a4a4a;
-        font-size: 0.85rem;
-      }
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 500;
+            color: #4A4A4A;
+            font-size: 0.85rem;
+        }
 
-      .form-group input,
-      .form-group select {
-        width: 100%;
-        padding: 10px 12px;
-        border: 1px solid rgba(74, 74, 74, 0.1);
-        border-radius: 6px;
-        font-size: 0.85rem;
-        background: #fdf6f0;
-        transition: all 0.3s ease;
-      }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid rgba(74, 74, 74, 0.1);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            background: #FDF6F0;
+            transition: all 0.3s ease;
+        }
 
-      .form-group input:focus,
-      .form-group select:focus {
-        outline: none;
-        border-color: #a3b18a;
-        box-shadow: 0 0 0 2px rgba(163, 177, 138, 0.2);
-      }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #A3B18A;
+            box-shadow: 0 0 0 2px rgba(163, 177, 138, 0.2);
+        }
 
-      .form-buttons {
-        display: flex;
-        gap: 8px;
-        justify-content: flex-end;
-        margin-top: 14px;
-      }
+        .form-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 14px;
+        }
 
-      .btn {
-        padding: 8px 14px;
-        border: none;
-        border-radius: 6px;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-      }
+        .btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
 
-      .btn-primary {
-        background: #a3b18a;
-        color: white;
-      }
+        .btn-primary {
+            background: #A3B18A;
+            color: white;
+        }
 
-      .btn-primary:hover {
-        background: #8da070;
-      }
+        .btn-primary:hover {
+            background: #8da070;
+        }
 
-      .btn-secondary {
-        background: #f0e6d2;
-        color: #4a4a4a;
-      }
+        .btn-secondary {
+            background: #F0E6D2;
+            color: #4A4A4A;
+        }
 
-      .btn-secondary:hover {
-        background: #e0d6c2;
-      }
+        .btn-secondary:hover {
+            background: #e0d6c2;
+        }
 
-      .notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #a3b18a;
-        color: white;
-        padding: 14px 18px;
-        border-radius: 10px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        transform: translateX(150%);
-        transition: transform 0.4s ease;
-        z-index: 1000;
-        font-size: 0.9rem;
-        max-width: 300px;
-        border-left: 3px solid #4a4a4a;
-        opacity: 0;
-        visibility: hidden;
-      }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #A3B18A;
+            color: white;
+            padding: 14px 18px;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            transform: translateX(150%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+            font-size: 0.9rem;
+            max-width: 300px;
+            border-left: 3px solid #4A4A4A;
+            opacity: 0;
+            visibility: hidden;
+        }
 
-      .notification.show {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-      }
+        .notification.show {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
 
-      .divider {
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(74, 74, 74, 0.2),
-          transparent
-        );
-        margin: 6px 0 14px;
-      }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(74, 74, 74, 0.2), transparent);
+            margin: 6px 0 14px;
+        }
 
-      /* Table Styles */
-      .assignment-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        margin-top: 10px;
-      }
+        /* Table Styles */
+        .assignment-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 10px;
+        }
 
-      .assignment-table th {
-        text-align: left;
-        padding: 12px 10px;
-        font-weight: 600;
-        font-size: 0.85rem;
-        color: #4a4a4a;
-        border-bottom: 2px solid rgba(74, 74, 74, 0.1);
-      }
+        .assignment-table th {
+            text-align: left;
+            padding: 12px 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #4A4A4A;
+            border-bottom: 2px solid rgba(74, 74, 74, 0.1);
+        }
 
-      .assignment-table td {
-        padding: 14px 10px;
-        border-bottom: 1px solid rgba(74, 74, 74, 0.08);
-        vertical-align: middle;
-      }
+        .assignment-table td {
+            padding: 14px 10px;
+            border-bottom: 1px solid rgba(74, 74, 74, 0.08);
+            vertical-align: middle;
+        }
 
-      .assignment-table tr:last-child td {
-        border-bottom: none;
-      }
+        .assignment-table tr:last-child td {
+            border-bottom: none;
+        }
 
-      .assignment-table tr:hover {
-        background: rgba(163, 177, 138, 0.05);
-      }
+        .assignment-table tr:hover {
+            background: rgba(163, 177, 138, 0.05);
+        }
 
-      .assignment-name {
-        font-weight: 500;
-        color: #4a4a4a;
-        font-size: 0.9rem;
-      }
+        .assignment-name {
+            font-weight: 500;
+            color: #4A4A4A;
+            font-size: 0.9rem;
+        }
 
-      .assignment-type {
-        display: inline-block;
-        font-size: 0.75rem;
-        padding: 3px 8px;
-        border-radius: 12px;
-        font-weight: 500;
-        text-align: center;
-        min-width: 70px;
-      }
+        .assignment-type {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+            text-align: center;
+            min-width: 70px;
+        }
 
-      .assignment-type.assignment {
-        background: #e8f4f8;
-        color: #4a4a4a;
-      }
+        .assignment-type.assignment {
+            background: #E8F4F8;
+            color: #4A4A4A;
+        }
 
-      .assignment-type.exam {
-        background: #f0e6d2;
-        color: #4a4a4a;
-      }
+        .assignment-type.exam {
+            background: #F0E6D2;
+            color: #4A4A4A;
+        }
 
-      .assignment-due {
-        font-size: 0.8rem;
-        color: #4a4a4a;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        white-space: nowrap; /* Prevent text from wrapping */
-      }
+        .assignment-due {
+            font-size: 0.8rem;
+            color: #4A4A4A;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
 
-      .assignment-due i {
-        color: #a3b18a;
-        font-size: 0.8rem;
-        flex-shrink: 0; /* Prevent icon from shrinking */
-      }
+        .assignment-due i {
+            color: #A3B18A;
+            font-size: 0.8rem;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
 
-      .assignment-due span {
-        flex-shrink: 1; /* Allow text to shrink if needed */
-        overflow: hidden;
-        text-overflow: ellipsis; /* Add ellipsis if text overflows */
-      }
+        .assignment-due span {
+            flex-shrink: 1; /* Allow text to shrink if needed */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Add ellipsis if text overflows */
+        }
 
-      .progress-container {
-        width: 100%;
-      }
+        .progress-container {
+            width: 100%;
+        }
 
-      .progress-bar {
-        width: 100%;
-        height: 8px;
-        background: #f0e6d2;
-        border-radius: 4px;
-        overflow: hidden;
-        cursor: pointer;
-        position: relative;
-      }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #F0E6D2;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
 
-      .progress-fill {
-        height: 100%;
-        background: #a3b18a;
-        border-radius: 4px;
-        transition: width 0.3s ease;
-        position: relative;
-      }
+        .progress-fill {
+            height: 100%;
+            background: #A3B18A;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            position: relative;
+        }
 
-      .progress-text {
-        font-size: 0.75rem;
-        color: #4a4a4a;
-        margin-top: 4px;
-        text-align: right;
-      }
+        .progress-text {
+            font-size: 0.75rem;
+            color: #4A4A4A;
+            margin-top: 4px;
+            text-align: right;
+        }
 
-      .assignment-status {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
+        .assignment-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
 
-      .status-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-      }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
 
-      .status-dot.not-started {
-        background: #f0e6d2;
-      }
+        .status-dot.not-started {
+            background: #F0E6D2;
+        }
 
-      .status-dot.in-progress {
-        background: #a3b18a;
-      }
+        .status-dot.in-progress {
+            background: #A3B18A;
+        }
 
-      .status-dot.completed {
-        background: #4a4a4a;
-      }
+        .status-dot.completed {
+            background: #4A4A4A;
+        }
 
-      .progress-tooltip {
-        position: absolute;
-        top: -30px;
-        padding: 4px 8px;
-        background: #4a4a4a;
-        color: white;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        opacity: 0;
-        transition: opacity 0.2s;
-        pointer-events: none;
-        z-index: 10;
-      }
+        .progress-tooltip {
+            position: absolute;
+            top: -30px;
+            padding: 4px 8px;
+            background: #4A4A4A;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            z-index: 10;
+        }
 
-      .progress-tooltip.show {
-        opacity: 1;
-      }
+        .progress-tooltip.show {
+            opacity: 1;
+        }
 
-      .remove-btn {
-        background: none;
-        border: none;
-        color: #4a4a4a;
-        cursor: pointer;
-        padding: 10px 14px;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-        font-size: 1.1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 40px;
-      }
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #4A4A4A;
+            cursor: pointer;
+            padding: 10px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 40px;
+        }
 
-      .remove-btn:hover {
-        background: #f0e6d2;
-        color: #4a4a4a;
-        transform: scale(1.05);
-      }
+        .remove-btn:hover {
+            background: #F0E6D2;
+            color: #4A4A4A;
+            transform: scale(1.05);
+        }
 
-      .remove-btn i {
-        transition: transform 0.3s ease;
-      }
+        .remove-btn i {
+            transition: transform 0.3s ease;
+        }
 
-      .remove-btn:hover i {
-        transform: scale(1.1);
-      }
+        .remove-btn:hover i {
+            transform: scale(1.1);
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="widget-container">
-      <div class="widget-header">
-        <h1>Assignments & Exams</h1>
-      </div>
-      <div class="widget-content">
-        <div class="section">
-          <div class="section-title">
-            <i class="fas fa-plus-circle"></i> Quick Action
-          </div>
-          <div class="quick-action" id="addAssignmentBtn">
-            <div class="quick-action-text">
-              <i class="fas fa-plus"></i>
-              <span>Add new task</span>
-            </div>
-            <i class="fas fa-chevron-right"></i>
-          </div>
-          <div class="add-assignment-form" id="addAssignmentForm">
-            <div class="form-group">
-              <label for="assignmentName">Name</label>
-              <input
-                type="text"
-                id="assignmentName"
-                placeholder="e.g., Math Assignment"
-              />
-            </div>
-            <div class="form-group">
-              <label for="assignmentType">Type</label>
-              <select id="assignmentType">
-                <option value="assignment">Assignment</option>
-                <option value="exam">Exam</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="dueDate">Due Date</label>
-              <input type="date" id="dueDate" />
-            </div>
-            <div class="form-buttons">
-              <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
-              <button class="btn btn-primary" id="saveBtn">Save</button>
-            </div>
-          </div>
+        <div class="widget-header">
+            <h1>Assignments & Exams</h1>
         </div>
+        <div class="widget-content">
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-plus-circle"></i> Quick Action
+                </div>
+                <div class="quick-action" id="addAssignmentBtn">
+                    <div class="quick-action-text">
+                        <i class="fas fa-plus"></i>
+                        <span>Add new task</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="add-assignment-form" id="addAssignmentForm">
+                    <div class="form-group">
+                        <label for="assignmentName">Name</label>
+                        <input type="text" id="assignmentName" placeholder="e.g., Math Assignment">
+                    </div>
+                    <div class="form-group">
+                        <label for="assignmentType">Type</label>
+                        <select id="assignmentType">
+                            <option value="assignment">Assignment</option>
+                            <option value="exam">Exam</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate">Due Date</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                    <div class="form-buttons">
+                        <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button class="btn btn-primary" id="saveBtn">Save</button>
+                    </div>
+                </div>
+            </div>
 
-        <div class="divider"></div>
+            <div class="divider"></div>
 
-        <div class="section">
-          <div class="section-title"><i class="fas fa-list"></i> All Tasks</div>
-          <div class="assignment-table-container">
-            <table class="assignment-table">
-              <thead>
-                <tr>
-                  <th style="width: 22%">Name</th>
-                  <th style="width: 12%">Type</th>
-                  <th style="width: 16%">Due Date</th>
-                  <th style="width: 16%">Progress</th>
-                  <th style="width: 12%">Status</th>
-                  <th style="width: 22%">Action</th>
-                </tr>
-              </thead>
-              <tbody id="assignmentTableBody">
-                <!-- Table rows will be dynamically added here -->
-              </tbody>
-            </table>
-          </div>
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-list"></i> All Tasks
+                </div>
+                <div class="assignment-table-container">
+                    <table class="assignment-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 22%;">Name</th>
+                                <th style="width: 12%;">Type</th>
+                                <th style="width: 16%;">Due Date</th>
+                                <th style="width: 16%;">Progress</th>
+                                <th style="width: 12%;">Status</th>
+                                <th style="width: 22%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assignmentTableBody">
+                            <!-- Table rows will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="notification" id="notification"></div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const addAssignmentBtn = document.getElementById("addAssignmentBtn");
-        const addAssignmentForm = document.getElementById("addAssignmentForm");
-        const cancelBtn = document.getElementById("cancelBtn");
-        const saveBtn = document.getElementById("saveBtn");
-        const assignmentNameInput = document.getElementById("assignmentName");
-        const assignmentTypeSelect = document.getElementById("assignmentType");
-        const dueDateInput = document.getElementById("dueDate");
-        const assignmentTableBody = document.getElementById(
-          "assignmentTableBody"
-        );
-        const notification = document.getElementById("notification");
+        document.addEventListener('DOMContentLoaded', function() {
+            const addAssignmentBtn = document.getElementById('addAssignmentBtn');
+            const addAssignmentForm = document.getElementById('addAssignmentForm');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const saveBtn = document.getElementById('saveBtn');
+            const assignmentNameInput = document.getElementById('assignmentName');
+            const assignmentTypeSelect = document.getElementById('assignmentType');
+            const dueDateInput = document.getElementById('dueDate');
+            const assignmentTableBody = document.getElementById('assignmentTableBody');
+            const notification = document.getElementById('notification');
 
-        // Load assignments from localStorage or initialize with default data
-        let assignments = JSON.parse(localStorage.getItem("assignments")) || [
-          {
-            id: 1,
-            name: "Math Assignment",
-            type: "assignment",
-            dueDate: "2023-10-15",
-            progress: 75,
-          },
-          {
-            id: 2,
-            name: "History Exam",
-            type: "exam",
-            dueDate: "2023-10-20",
-            progress: 30,
-          },
-          {
-            id: 3,
-            name: "English Essay",
-            type: "assignment",
-            dueDate: "2023-10-10",
-            progress: 100,
-          },
-        ];
+            // Load assignments from localStorage or initialize with default data
+            let assignments = JSON.parse(localStorage.getItem('assignments')) || [
+                {
+                    id: 1,
+                    name: 'Math Assignment',
+                    type: 'assignment',
+                    dueDate: '2023-10-15',
+                    progress: 75
+                },
+                {
+                    id: 2,
+                    name: 'History Exam',
+                    type: 'exam',
+                    dueDate: '2023-10-20',
+                    progress: 30
+                },
+                {
+                    id: 3,
+                    name: 'English Essay',
+                    type: 'assignment',
+                    dueDate: '2023-10-10',
+                    progress: 100
+                }
+            ];
 
-        // Save assignments to localStorage
-        function saveAssignmentsToStorage() {
-          localStorage.setItem("assignments", JSON.stringify(assignments));
-          // Trigger storage event to notify other widgets
-          window.dispatchEvent(new Event("storage"));
-        }
+            // Save assignments to localStorage
+            function saveAssignmentsToStorage() {
+                localStorage.setItem('assignments', JSON.stringify(assignments));
+                // Trigger storage event to notify other widgets
+                window.dispatchEvent(new Event('storage'));
+            }
 
-        // Render assignments table
-        function renderAssignments() {
-          assignmentTableBody.innerHTML = "";
-
-          assignments.forEach((assignment) => {
-            const formattedDate = new Date(
-              assignment.dueDate
-            ).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            });
-
-            const statusClass =
-              assignment.progress === 0
-                ? "not-started"
-                : assignment.progress < 100
-                ? "in-progress"
-                : "completed";
-
-            const statusText =
-              assignment.progress === 0
-                ? "Not Started"
-                : assignment.progress < 100
-                ? "In Progress"
-                : "Completed";
-
-            const row = document.createElement("tr");
-            row.setAttribute("data-id", assignment.id);
-
-            row.innerHTML = `
+            // Render assignments table
+            function renderAssignments() {
+                assignmentTableBody.innerHTML = '';
+                
+                assignments.forEach(assignment => {
+                    const formattedDate = new Date(assignment.dueDate).toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric', 
+                        year: 'numeric' 
+                    });
+                    
+                    const statusClass = assignment.progress === 0 ? 'not-started' : 
+                                      assignment.progress < 100 ? 'in-progress' : 'completed';
+                    
+                    const statusText = assignment.progress === 0 ? 'Not Started' : 
+                                     assignment.progress < 100 ? 'In Progress' : 'Completed';
+                    
+                    const row = document.createElement('tr');
+                    row.setAttribute('data-id', assignment.id);
+                    
+                    row.innerHTML = `
                         <td class="assignment-name">${assignment.name}</td>
-                        <td><span class="assignment-type ${assignment.type}">${
-              assignment.type.charAt(0).toUpperCase() + assignment.type.slice(1)
-            }</span></td>
+                        <td><span class="assignment-type ${assignment.type}">${assignment.type.charAt(0).toUpperCase() + assignment.type.slice(1)}</span></td>
                         <td>
                             <div class="assignment-due">
                                 <i class="fas fa-calendar"></i>
@@ -572,19 +543,11 @@
                         </td>
                         <td>
                             <div class="progress-container">
-                                <div class="progress-bar" data-progress="${
-                                  assignment.progress
-                                }">
-                                    <div class="progress-fill" style="width: ${
-                                      assignment.progress
-                                    }%"></div>
-                                    <div class="progress-tooltip">${
-                                      assignment.progress
-                                    }%</div>
+                                <div class="progress-bar" data-progress="${assignment.progress}">
+                                    <div class="progress-fill" style="width: ${assignment.progress}%"></div>
+                                    <div class="progress-tooltip">${assignment.progress}%</div>
                                 </div>
-                                <div class="progress-text">${
-                                  assignment.progress
-                                }%</div>
+                                <div class="progress-text">${assignment.progress}%</div>
                             </div>
                         </td>
                         <td>
@@ -594,161 +557,155 @@
                             </div>
                         </td>
                         <td>
-                            <button class="remove-btn" onclick="removeAssignment(${
-                              assignment.id
-                            })" title="Remove assignment">
+                            <button class="remove-btn" onclick="removeAssignment(${assignment.id})" title="Remove assignment">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td>
                     `;
+                    
+                    assignmentTableBody.appendChild(row);
+                });
+                
+                // Setup progress bars after rendering
+                document.querySelectorAll('.progress-bar').forEach(setupProgressBar);
+            }
 
-            assignmentTableBody.appendChild(row);
-          });
-
-          // Setup progress bars after rendering
-          document.querySelectorAll(".progress-bar").forEach(setupProgressBar);
-        }
-
-        // Remove assignment function
-        window.removeAssignment = function (assignmentId) {
-          const assignment = assignments.find((a) => a.id === assignmentId);
-          if (assignment) {
-            assignments = assignments.filter((a) => a.id !== assignmentId);
-            saveAssignmentsToStorage();
-            renderAssignments();
-            showNotification(`"${assignment.name}" has been removed`);
-          }
-        };
-
-        // Toggle add assignment form
-        addAssignmentBtn.addEventListener("click", function () {
-          addAssignmentForm.style.display =
-            addAssignmentForm.style.display === "block" ? "none" : "block";
-          if (addAssignmentForm.style.display === "block") {
-            assignmentNameInput.focus();
-          }
-        });
-
-        // Cancel adding assignment
-        cancelBtn.addEventListener("click", function () {
-          addAssignmentForm.style.display = "none";
-          assignmentNameInput.value = "";
-          assignmentTypeSelect.value = "assignment";
-          dueDateInput.value = "";
-        });
-
-        // Save new assignment
-        saveBtn.addEventListener("click", function () {
-          const assignmentName = assignmentNameInput.value.trim();
-          const assignmentType = assignmentTypeSelect.value;
-          const dueDate = dueDateInput.value;
-
-          if (assignmentName && dueDate) {
-            const newAssignment = {
-              id: Date.now(),
-              name: assignmentName,
-              type: assignmentType,
-              dueDate: dueDate,
-              progress: 0,
+            // Remove assignment function
+            window.removeAssignment = function(assignmentId) {
+                const assignment = assignments.find(a => a.id === assignmentId);
+                if (assignment) {
+                    assignments = assignments.filter(a => a.id !== assignmentId);
+                    saveAssignmentsToStorage();
+                    renderAssignments();
+                    showNotification(`"${assignment.name}" has been removed`);
+                }
             };
 
-            assignments.push(newAssignment);
-            saveAssignmentsToStorage();
+            // Toggle add assignment form
+            addAssignmentBtn.addEventListener('click', function() {
+                addAssignmentForm.style.display = addAssignmentForm.style.display === 'block' ? 'none' : 'block';
+                if (addAssignmentForm.style.display === 'block') {
+                    assignmentNameInput.focus();
+                }
+            });
+
+            // Cancel adding assignment
+            cancelBtn.addEventListener('click', function() {
+                addAssignmentForm.style.display = 'none';
+                assignmentNameInput.value = '';
+                assignmentTypeSelect.value = 'assignment';
+                dueDateInput.value = '';
+            });
+
+            // Save new assignment
+            saveBtn.addEventListener('click', function() {
+                const assignmentName = assignmentNameInput.value.trim();
+                const assignmentType = assignmentTypeSelect.value;
+                const dueDate = dueDateInput.value;
+                
+                if (assignmentName && dueDate) {
+                    const newAssignment = {
+                        id: Date.now(),
+                        name: assignmentName,
+                        type: assignmentType,
+                        dueDate: dueDate,
+                        progress: 0
+                    };
+                    
+                    assignments.push(newAssignment);
+                    saveAssignmentsToStorage();
+                    renderAssignments();
+                    
+                    addAssignmentForm.style.display = 'none';
+                    assignmentNameInput.value = '';
+                    assignmentTypeSelect.value = 'assignment';
+                    dueDateInput.value = '';
+                    
+                    showNotification(`${assignmentType} "${assignmentName}" added successfully!`);
+                }
+            });
+
+            // Setup progress bars
+            function setupProgressBar(progressBar) {
+                const tooltip = progressBar.querySelector('.progress-tooltip');
+                const progressFill = progressBar.querySelector('.progress-fill');
+                const progressText = progressBar.nextElementSibling;
+                
+                progressBar.addEventListener('click', function(e) {
+                    const rect = progressBar.getBoundingClientRect();
+                    const offsetX = e.clientX - rect.left;
+                    const width = rect.width;
+                    const percentage = Math.round((offsetX / width) * 100);
+                    
+                    // Update progress
+                    progressBar.setAttribute('data-progress', percentage);
+                    progressFill.style.width = percentage + '%';
+                    progressText.textContent = percentage + '%';
+                    tooltip.textContent = percentage + '%';
+                    
+                    // Update assignment data
+                    const row = progressBar.closest('tr');
+                    const assignmentId = parseInt(row.getAttribute('data-id'));
+                    const assignment = assignments.find(a => a.id === assignmentId);
+                    
+                    if (assignment) {
+                        assignment.progress = percentage;
+                        saveAssignmentsToStorage();
+                    }
+                    
+                    // Update status based on progress
+                    const statusDot = row.querySelector('.status-dot');
+                    const statusText = row.querySelector('.assignment-status span');
+                    
+                    if (percentage === 0) {
+                        statusDot.className = 'status-dot not-started';
+                        statusText.textContent = 'Not Started';
+                    } else if (percentage < 100) {
+                        statusDot.className = 'status-dot in-progress';
+                        statusText.textContent = 'In Progress';
+                    } else {
+                        statusDot.className = 'status-dot completed';
+                        statusText.textContent = 'Completed';
+                    }
+                });
+                
+                progressBar.addEventListener('mouseenter', function() {
+                    const percentage = progressBar.getAttribute('data-progress');
+                    tooltip.textContent = percentage + '%';
+                    tooltip.classList.add('show');
+                    
+                    // Position tooltip
+                    const rect = progressBar.getBoundingClientRect();
+                    const progressRect = progressFill.getBoundingClientRect();
+                    const tooltipWidth = tooltip.offsetWidth;
+                    let left = progressRect.right - rect.left - tooltipWidth / 2;
+                    
+                    // Ensure tooltip stays within bounds
+                    if (left < 0) left = 0;
+                    if (left + tooltipWidth > rect.width) left = rect.width - tooltipWidth;
+                    
+                    tooltip.style.left = left + 'px';
+                });
+                
+                progressBar.addEventListener('mouseleave', function() {
+                    tooltip.classList.remove('show');
+                });
+            }
+
+            // Function to show notification
+            function showNotification(message) {
+                notification.textContent = message;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+
+            // Initial render
             renderAssignments();
-
-            addAssignmentForm.style.display = "none";
-            assignmentNameInput.value = "";
-            assignmentTypeSelect.value = "assignment";
-            dueDateInput.value = "";
-
-            showNotification(
-              `${assignmentType} "${assignmentName}" added successfully!`
-            );
-          }
         });
-
-        // Setup progress bars
-        function setupProgressBar(progressBar) {
-          const tooltip = progressBar.querySelector(".progress-tooltip");
-          const progressFill = progressBar.querySelector(".progress-fill");
-          const progressText = progressBar.nextElementSibling;
-
-          progressBar.addEventListener("click", function (e) {
-            const rect = progressBar.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const width = rect.width;
-            const percentage = Math.round((offsetX / width) * 100);
-
-            // Update progress
-            progressBar.setAttribute("data-progress", percentage);
-            progressFill.style.width = percentage + "%";
-            progressText.textContent = percentage + "%";
-            tooltip.textContent = percentage + "%";
-
-            // Update assignment data
-            const row = progressBar.closest("tr");
-            const assignmentId = parseInt(row.getAttribute("data-id"));
-            const assignment = assignments.find((a) => a.id === assignmentId);
-
-            if (assignment) {
-              assignment.progress = percentage;
-              saveAssignmentsToStorage();
-            }
-
-            // Update status based on progress
-            const statusDot = row.querySelector(".status-dot");
-            const statusText = row.querySelector(".assignment-status span");
-
-            if (percentage === 0) {
-              statusDot.className = "status-dot not-started";
-              statusText.textContent = "Not Started";
-            } else if (percentage < 100) {
-              statusDot.className = "status-dot in-progress";
-              statusText.textContent = "In Progress";
-            } else {
-              statusDot.className = "status-dot completed";
-              statusText.textContent = "Completed";
-            }
-          });
-
-          progressBar.addEventListener("mouseenter", function () {
-            const percentage = progressBar.getAttribute("data-progress");
-            tooltip.textContent = percentage + "%";
-            tooltip.classList.add("show");
-
-            // Position tooltip
-            const rect = progressBar.getBoundingClientRect();
-            const progressRect = progressFill.getBoundingClientRect();
-            const tooltipWidth = tooltip.offsetWidth;
-            let left = progressRect.right - rect.left - tooltipWidth / 2;
-
-            // Ensure tooltip stays within bounds
-            if (left < 0) left = 0;
-            if (left + tooltipWidth > rect.width)
-              left = rect.width - tooltipWidth;
-
-            tooltip.style.left = left + "px";
-          });
-
-          progressBar.addEventListener("mouseleave", function () {
-            tooltip.classList.remove("show");
-          });
-        }
-
-        // Function to show notification
-        function showNotification(message) {
-          notification.textContent = message;
-          notification.classList.add("show");
-
-          setTimeout(() => {
-            notification.classList.remove("show");
-          }, 3000);
-        }
-
-        // Initial render
-        renderAssignments();
-      });
     </script>
-  </body>
+</body>
 </html>
 
